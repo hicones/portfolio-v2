@@ -6,15 +6,15 @@ import { AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 export default function PagesLayout({ children }: { children: React.ReactElement }) {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
       document.body.style.cursor = "default";
       window.scrollTo(0, 0);
     }, 2000);
-  }, []);
+  }, []); */
 
   return (
     <main className="flex flex-col items-center justify-between">

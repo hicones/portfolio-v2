@@ -21,9 +21,11 @@ export const opacity = {
 export const curve = ({
   initialPath,
   targetPath,
+  finalPath,
 }: {
   initialPath: any;
   targetPath: any;
+  finalPath: any;
 }) => {
   return {
     initial: {
@@ -34,7 +36,7 @@ export const curve = ({
       transition: { duration: 0.75, delay: 0.35, ease: [0.76, 0, 0.24, 1] },
     },
     exit: {
-      d: initialPath,
+      d: finalPath,
       transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },
     },
   };
@@ -42,22 +44,19 @@ export const curve = ({
 
 export const translate = {
   initial: {
-    top: "-300px",
+    top: "100%",
   },
   enter: {
-    top: "-100vh",
+    top: "0",
     transition: { duration: 0.75, delay: 0.35, ease: [0.76, 0, 0.24, 1] },
-    transitionEnd: {
-      top: "100vh",
-    },
   },
   exit: {
-    top: "-300px",
+    top: "-150%",
     transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },
   },
 };
 
-export const textAnimation = {
+export const textTransition = {
   initial: {
     opacity: 1,
   },
@@ -65,11 +64,11 @@ export const textAnimation = {
     opacity: 0,
     top: -100,
     transition: { duration: 0.75, delay: 0.35, ease: [0.76, 0, 0.24, 1] },
-    transitionEnd: { top: "63.5%" },
+    transitionEnd: { top: "47.5%" },
   },
   exit: {
     opacity: 1,
-    top: "50%",
+    top: "40%",
     transition: { duration: 0.5, delay: 0.4, ease: [0.33, 1, 0.68, 1] },
   },
 };
