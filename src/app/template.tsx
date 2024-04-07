@@ -1,7 +1,7 @@
 "use client";
 
 import { SVG } from "@/components/app/loading-home/svg-loading";
-import { textTransition } from "@/utils/animations";
+import { opacity } from "@/utils/animations";
 import { pathnamesEnum } from "@/utils/loading-pages";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
@@ -46,7 +46,7 @@ export default function Template({ children }: { children: React.ReactElement })
       setLoadingTransition(false);
       document.body.style.cursor = "default";
       window.scrollTo(0, 0);
-    }, 1000);
+    }, 1500);
   }, [pathname]);
 
   return (
@@ -56,11 +56,11 @@ export default function Template({ children }: { children: React.ReactElement })
           <>
             <div style={{ opacity: dimensions.width === null ? 1 : 0 }} id="background" />
             <motion.p
-              variants={textTransition}
+              variants={opacity}
               initial="initial"
               animate="enter"
               exit="exit"
-              className="text-white text-4xl absolute z-10 text-center top-[50%] left-1/2 -translate-x-1/2">
+              className="text-white text-4xl flex absolute items-center justify-center z-50 h-screen w-full text-center font-title">
               {(pathnamesEnum as any)[pathname]}
             </motion.p>
             {dimensions?.width !== null && (

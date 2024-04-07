@@ -11,10 +11,17 @@ export const slideUp = {
 export const opacity = {
   initial: {
     opacity: 0,
+    y: "50%",
   },
   enter: {
     opacity: 1,
-    transition: { duration: 0.1, delay: 0.1 },
+    y: 0,
+    transition: { duration: 0.75, delay: 0.5 },
+  },
+  exit: {
+    opacity: 0,
+    y: -100,
+    transition: { duration: 0.4, delay: 0.1 },
   },
 };
 
@@ -33,7 +40,7 @@ export const curve = ({
     },
     enter: {
       d: targetPath,
-      transition: { duration: 0.75, delay: 0.35, ease: [0.76, 0, 0.24, 1] },
+      transition: { duration: 1, delay: 0.35, ease: [0.76, 0, 0.24, 1] },
     },
     exit: {
       d: finalPath,
@@ -48,7 +55,7 @@ export const translate = {
   },
   enter: {
     top: "0",
-    transition: { duration: 0.75, delay: 0.35, ease: [0.76, 0, 0.24, 1] },
+    transition: { duration: 1, delay: 0.35, ease: [0.76, 0, 0.24, 1] },
   },
   exit: {
     top: "-150%",

@@ -49,7 +49,7 @@ export const HomeLoading = () => {
             variants={opacity}
             initial="initial"
             animate="enter"
-            className="text-white text-4xl flex absolute items-start z-10">
+            className="text-white text-4xl flex absolute z-10 font-title">
             {pathname === "/" ? words[index] : (pathnamesEnum as any)[pathname]}
           </motion.p>
           <svg className="introductionSVG">

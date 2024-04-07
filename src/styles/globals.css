@@ -77,13 +77,15 @@
   height: calc(100% + 300px);
 }
 
-.curve {
+.curve,
+#background {
   position: fixed;
   height: calc(100vh + 600px);
   width: 100vw;
   pointer-events: none;
   left: 0;
   top: 0;
+  z-index: 40;
 }
 
 #background {
