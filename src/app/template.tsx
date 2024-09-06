@@ -1,7 +1,7 @@
 "use client";
 
 import { SVG } from "@/components/app/loading-home/svg-loading";
-import { opacity } from "@/utils/animations";
+import { textTransition } from "@/utils/animations";
 import { pathnamesEnum } from "@/utils/loading-pages";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
@@ -50,13 +50,13 @@ export default function Template({ children }: { children: React.ReactElement })
   }, [pathname]);
 
   return (
-    <div id="template">
+    <div>
       <AnimatePresence mode="wait">
         {loadingTransition && (
           <>
             <div style={{ opacity: dimensions.width === null ? 1 : 0 }} id="background" />
             <motion.p
-              variants={opacity}
+              variants={textTransition}
               initial="initial"
               animate="enter"
               exit="exit"

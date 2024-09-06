@@ -39,7 +39,7 @@ export const HomeLoading = () => {
 
   return (
     <motion.div
-      className="bg-black h-screen w-screen flex items-center justify-center fixed z-50"
+      className="fixed z-50 flex h-screen w-screen items-center justify-center bg-black"
       variants={slideUp}
       initial="initial"
       exit="exit">
@@ -49,7 +49,7 @@ export const HomeLoading = () => {
             variants={opacity}
             initial="initial"
             animate="enter"
-            className="text-white text-4xl flex absolute z-10 font-title">
+            className="absolute z-10 flex font-title text-4xl text-white">
             {pathname === "/" ? words[index] : (pathnamesEnum as any)[pathname]}
           </motion.p>
           <svg className="introductionSVG">
