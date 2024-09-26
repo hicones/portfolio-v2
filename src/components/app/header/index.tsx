@@ -20,7 +20,7 @@ export const Header = forwardRef<HTMLHeadingElement>((props, ref) => {
       ref={ref}
       {...props}>
       <Link href="/">
-        <h1 className="font-title text-3xl font-bold">Henrique Almeida</h1>
+        <h1 className="font-title text-3xl font-bold">Hicones Tech</h1>
       </Link>
 
       <nav className="text-lg font-medium font-title hidden md:flex">
