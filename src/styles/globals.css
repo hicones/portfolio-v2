@@ -32,7 +32,7 @@
 
   html,
   body {
-    @apply min-h-screen bg-background font-body cursor-wait scroll-smooth;
+    @apply min-h-screen bg-background font-body scroll-smooth;
   }
 }
 ::-webkit-scrollbar {

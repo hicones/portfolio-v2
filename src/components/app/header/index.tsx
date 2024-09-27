@@ -1,4 +1,4 @@
-import React, { LegacyRef, forwardRef } from "react";
+import React, { forwardRef } from "react";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -16,7 +16,7 @@ export const Header = forwardRef<HTMLHeadingElement>((props, ref) => {
 
   return (
     <header
-      className="flex justify-between items-center w-full lg:p-12 px-4 py-4 flex-wrap z-0"
+      className="flex justify-between items-center max-w-screen-2xl w-full lg:p-12 px-4 py-4 flex-wrap z-0"
       ref={ref}
       {...props}>
       <Link href="/">
@@ -24,7 +24,7 @@ export const Header = forwardRef<HTMLHeadingElement>((props, ref) => {
       </Link>
 
       <nav className="text-lg font-medium font-title hidden md:flex">
-        <ul className="flex space-x-4">
+        <ul className="flex space-x-8">
           {navList.map((navItem, index) => (
             <li
               key={index}

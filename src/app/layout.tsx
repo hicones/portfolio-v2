@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { Noto_Sans, Sora, Lato } from "next/font/google";
-import { cn } from "@/helpers/styles";
+import { cn } from "@/helpers/utils";
 
 const noto = Noto_Sans({ subsets: ["latin"], variable: "--font-body" });
 const sora = Sora({ subsets: ["latin"], variable: "--font-title" });
