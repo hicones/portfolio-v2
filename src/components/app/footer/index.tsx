@@ -1,10 +1,14 @@
 import Link from "next/link";
 import * as motion from "motion/react-client";
-import { containerVariants, itemVariants, social_links } from "@/utils/constants";
+import {
+  containerVariants,
+  itemVariants,
+  social_links,
+} from "@/utils/constants";
 
 export const Footer = () => {
   return (
-    <footer className="relative h-fit bg-[#bf2b18] rounded-t-[4rem] text-[#1d1d1b]">
+    <footer className="relative h-fit bg-foreground rounded-t-[4rem] text-background">
       <motion.div
         className="container mx-auto px-4 py-12"
         variants={containerVariants}
@@ -63,12 +67,10 @@ export const Footer = () => {
         </motion.div>
 
         <motion.div className="mb-12" variants={itemVariants}>
-          <h3 className="font-heading text-[10rem] font-black text-[#1d1d1b]">
-            Hicones Tech
-          </h3>
+          <h3 className="font-heading text-[10rem] font-black">Hicones Tech</h3>
         </motion.div>
 
-        <div className="border-t border-black pt-4 flex flex-col md:flex-row justify-between items-center font-inter text-sm">
+        <div className="border-t border-stone-600 pt-4 flex flex-col md:flex-row justify-between items-center font-inter text-sm">
           <div>
             <p>
               ©{new Date().getFullYear()} Hicones Tech — All rights reserved.
