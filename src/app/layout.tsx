@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Poppins, Fira_Code } from "next/font/google";
 import "@/styles/globals.css";
+import { ScrollProgressBar } from "@/components/app/scroll-progress-bar";
 
 const inter = Inter({ subsets: ["latin"] });
 const firaCode = Fira_Code({ subsets: ["latin"] });
@@ -25,7 +26,11 @@ export default function RootLayout({
         className={`${inter.className} ${poppins.className} ${firaCode.className} antialiased`}
         cz-shortcut-listen="true"
       >
-        <div className="min-h-screen">{children}</div>
+        <div className="min-h-screen">
+          {children}
+
+          <ScrollProgressBar />
+        </div>
       </body>
     </html>
   );
