@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { SplitButton } from "@/components/app/split-button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,10 +11,10 @@ export const ContactSection = () => {
     >
       <motion.div
         className="font-semibold text-lg lg:text-3xl text-center overflow-hidden flex gap-4 w-full flex-col justify-center lg:flex-row lg:justify-between"
-        initial={{ opacity: 0, y: -100, height: 0 }}
-        whileInView={{ opacity: 1, y: 0, height: "auto" }}
+        initial={{ opacity: 0, y: -100 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        viewport={{ once: true, margin: "-200px" }}
+        viewport={{ margin: "-200px" }}
       >
         <form action="" className="max-w-xl font-sans">
           <h2 className="text-3xl font-semibold">Get in touch</h2>
@@ -33,7 +32,11 @@ export const ContactSection = () => {
           </div>
         </form>
 
-        <img
+        <motion.img
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ margin: "-200px", once: true }}
           src="/assets/contact.png"
           alt="contact illustration image"
           className="max-w-xl object-contain rounded-lg shadow-sm"

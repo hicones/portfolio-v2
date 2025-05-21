@@ -4,6 +4,7 @@ import { SocialLinks } from "@/components/social-links";
 import { AboutSection } from "./components/about-section";
 import { ContactSection } from "./components/contact-section";
 import { Footer } from "@/components/app/footer";
+import { RevealSection } from "./components/reaveal-section";
 
 export default async function HomePage() {
   return (
@@ -28,9 +29,9 @@ export default async function HomePage() {
           </div>
           <section className="h-[90lvh] bg-foreground flex items-center justify-center relative">
             <video
-              src="https://framerusercontent.com/assets/9x4agpZxidbcYXtqpuoFS6O0tc.mp4"
+              src="/assets/template_video.mp4"
               loop
-              poster="https://framerusercontent.com/images/zNWRFgssuSuDTjXzoYN8DSHIPhA.png"
+              poster="/assets/template_poster.avif"
               playsInline
               autoPlay={true}
               controls={false}
@@ -39,6 +40,8 @@ export default async function HomePage() {
         </div>
 
         <AboutSection />
+
+        <RevealSection />
         <ContactSection />
         <Footer />
       </main>

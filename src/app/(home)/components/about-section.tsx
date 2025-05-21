@@ -10,20 +10,18 @@ export const AboutSection = () => {
         initial={{ opacity: 0, y: -100, height: 0 }}
         whileInView={{ opacity: 1, y: 0, height: "auto" }}
         transition={{ duration: 0.5 }}
-        viewport={{ once: true, margin: "-400px" }}
       >
         A frontend developer specializing in website creation, with experience
         collaborating with designers and backend developers, and integrating
         animations and 3D graphics for a unique visual experience.
       </motion.p>
 
-      <div className="flex gap-8 items-center w-full justify-evenly flex-col-reverse">
+      <div className="flex gap-8 items-center w-full justify-evenly">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true, margin: "-200px" }}
-          className="flex flex-col gap-4 max-w-3xl"
+          className="flex flex-col gap-4 max-w-xl"
         >
           <h2 className="text-3xl font-semibold">I am Henrique Almeida</h2>
           <p className="text-lg ">
@@ -40,7 +38,6 @@ export const AboutSection = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          viewport={{ once: true, margin: "-400px" }}
           src="/assets/foto1.jpg"
           alt="Henrique Almeida"
           className="rounded-lg shadow-sm max-w-xs object-cover"

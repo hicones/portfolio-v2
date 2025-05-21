@@ -1,21 +1,6 @@
 import Link from "next/link";
 import * as motion from "motion/react-client";
-import { social_links } from "@/utils/constants";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0 },
-};
+import { containerVariants, itemVariants, social_links } from "@/utils/constants";
 
 export const Footer = () => {
   return (

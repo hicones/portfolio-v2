@@ -154,3 +154,14 @@ h1 {
     translate: 0% 0%;
   }
 }
+
+.stickyMask {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  mask-size: 0%;
+  mask-image: url("/assets/react.svg");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  
+}
