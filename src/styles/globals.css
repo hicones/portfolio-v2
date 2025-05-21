@@ -15,9 +15,12 @@
 @theme {
   --animate-fade-in: fadeIn 0.2s ease-in-out;
   --animate-fade: fade 0.2s ease-in-out;
+  --animate-fade-top: fadeTop 0.3s ease-in-out;
   --font-sans: "Inter", sans-serif;
   --font-heading: "Poppins", sans-serif;
   --font-mono: "Fira Code", monospace;
+  --animate-in: fadeIn 0.2s ease-in-out;
+  --animate-out: fadeOut 0.2s ease-in-out;
 
   @keyframes fadeIn {
     0% {
@@ -30,11 +33,33 @@
     }
   }
 
+  @keyframes fadeOut {
+    0% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(50%);
+      opacity: 0;
+    }
+  }
+
   @keyframes fade {
     0% {
       opacity: 0;
     }
     100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeTop {
+    0% {
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0%);
       opacity: 1;
     }
   }
@@ -47,6 +72,10 @@
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -54,6 +83,7 @@ body {
   transition-timing-function: ease-in-out;
   transition-duration: 500ms;
   transition-property: opacity, background-color, transform, filter;
+  scroll-behavior: smooth;
 }
 
 h1 {
@@ -61,6 +91,10 @@ h1 {
   font-size: 7.8125rem;
   line-height: 1.2;
   color: var(--foreground);
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 }
 
 .page-transition {
@@ -95,5 +129,28 @@ h1 {
   }
   &:hover span {
     translate: 0% -200%;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.socials {
+  @apply overflow-hidden relative transition-all duration-300 rounded-full border-2 border-stone-400 flex p-2 items-center justify-center text-background hover:text-foreground;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background-color: var(--background);
+    translate: 0% 200%;
+    transition: translate 0.5s ease;
+    z-index: -1;
+  }
+
+  &:hover::before {
+    translate: 0% 0%;
   }
 }
