@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@theme {
+  --animate-fade-in: fadeIn 0.2s ease-in-out;
+  --animate-fade: fade 0.2s ease-in-out;
+  --font-sans: "Inter", sans-serif;
+  --font-heading: "Poppins", sans-serif;
+  --font-mono: "Fira Code", monospace;
+
+  @keyframes fadeIn {
+    0% {
+      transform: translateY(50%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #f2f2f2;
+    --foreground: #0a0a0a;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Inter", Helvetica, sans-serif;
+  transition-timing-function: ease-in-out;
+  transition-duration: 500ms;
+  transition-property: opacity, background-color, transform, filter;
+}
+
+h1 {
+  font-family: var(--font-sans);
+  font-size: 7.8125rem;
+  line-height: 1.2;
+  color: var(--foreground);
+}
+
+.page-transition {
+  opacity: 0;
+  transform: translateY(-40px);
+  background-color: black;
+  filter: blur(12px);
+}
+
+.split-button {
+  position: relative;
+  overflow-y: clip;
+  white-space: nowrap;
+  width: 100%;
+  &::before {
+    content: attr(data-button-text);
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    translate: 0% 200%;
+    transition: translate 0.5s ease;
+  }
+
+  span {
+    display: block;
+    transition: translate 0.5s ease;
+  }
+
+  &:hover::before {
+    translate: 0% 0%;
+  }
+  &:hover span {
+    translate: 0% -200%;
+  }
+}
