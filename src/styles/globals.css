@@ -21,6 +21,7 @@
   --font-mono: "Fira Code", monospace;
   --animate-in: fadeIn 0.2s ease-in-out;
   --animate-out: fadeOut 0.2s ease-in-out;
+  --fade-out: out 0.2s ease-in-out;
 
   @keyframes fadeIn {
     0% {
@@ -50,6 +51,15 @@
     }
     100% {
       opacity: 1;
+    }
+  }
+
+  @keyframes out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
     }
   }
 
@@ -163,5 +173,4 @@ h1 {
   mask-image: url("/assets/react.svg");
   mask-repeat: no-repeat;
   mask-position: center;
-  
 }
