@@ -1,4 +1,4 @@
-import { SplitButton } from "@/components/app/split-button";
+import { TransitionButton } from "@/components/app/transition-button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import * as motion from "motion/react-client";
@@ -10,7 +10,7 @@ export const ContactSection = () => {
       className="bg-background container sticky top-0 min-h-[100dvh] overflow-hidden left-0 mx-auto flex flex-col lg:flex-row gap-8 lg:py-40 items-center p-4"
     >
       <motion.div
-        className="font-semibold text-lg lg:text-3xl text-center overflow-hidden flex gap-4 w-full flex-col justify-center lg:flex-row lg:justify-between"
+        className="font-semibold text-lg lg:text-3xl text-center overflow-hidden flex gap-4 w-full flex-col justify-center lg:flex-row lg:justify-between px-4"
         initial={{ opacity: 0, y: -100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -26,9 +26,7 @@ export const ContactSection = () => {
             <Input type="text" placeholder="Your name" />
             <Input type="email" placeholder="Your email" />
             <Textarea rows={8} placeholder="Your message" />
-            <SplitButton className="bg-[#0E2148] rounded text-background p-2 text-lg font-medium">
-              Send Message
-            </SplitButton>
+            <TransitionButton>Send Message</TransitionButton>
           </div>
         </form>
 

@@ -16,7 +16,7 @@ export const AboutSection = () => {
         animations and 3D graphics for a unique visual experience.
       </motion.p>
 
-      <div className="flex gap-8 items-center w-full justify-evenly">
+      <div className="flex gap-8 items-center w-full justify-evenly flex-col-reverse lg:flex-row">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -98,13 +98,9 @@ body {
 
 h1 {
   font-family: var(--font-sans);
-  font-size: 7.8125rem;
+  font-size: 8vw;
   line-height: 1.2;
   color: var(--foreground);
-
-  @media (max-width: 768px) {
-    font-size: 2rem;
-  }
 }
 
 .page-transition {
@@ -147,7 +143,7 @@ h1 {
 }
 
 .socials {
-  @apply overflow-hidden relative transition-all duration-300 rounded-full border-2 border-stone-400 flex p-2 items-center justify-center text-background hover:text-foreground;
+  @apply overflow-hidden relative transition-all duration-300 rounded-full outline-2 flex p-2 items-center justify-center text-background hover:text-foreground;
 
   &::before {
     content: "";
@@ -173,4 +169,21 @@ h1 {
   mask-image: url("/assets/react.svg");
   mask-repeat: no-repeat;
   mask-position: center;
+}
+
+.transitionButton {
+  @apply relative hover:text-background  overflow-hidden flex justify-center items-center outline-2;
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--foreground);
+    translate: 0% 200%;
+    transition: translate 0.5s ease;
+    z-index: 0;
+  }
+
+  &:hover::before {
+    translate: 0% 0%;
+  }
 }

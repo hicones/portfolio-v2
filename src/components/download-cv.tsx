@@ -3,40 +3,35 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { SplitButton } from "./app/split-button";
 import Link from "next/link";
+import { TransitionButton } from "./app/transition-button";
 
 export const DownloadCVButton = () => {
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <SplitButton className="bg-[#0E2148] w-fit px-10 rounded font-semibold font-mono !p-3 text-background">
-          Download CV
-        </SplitButton>
+      <DialogTrigger>
+        <TransitionButton>Download CV</TransitionButton>
       </DialogTrigger>
-      <DialogContent className="!p-4">
+      <DialogContent className="w-full">
         <DialogHeader>
           <DialogTitle>Download CV</DialogTitle>
           <DialogDescription>
             Choose your preferred language for the CV:
           </DialogDescription>
         </DialogHeader>
-        <div className="flex gap-4">
+        <DialogFooter className="flex gap-2 w-full items-center !justify-start">
           <Link href={"/assets/cv/henrique-almeida-cv-en.pdf"} download>
-            <SplitButton className="bg-[#0E2148] text-background !p-2 rounded font-medium font-mono">
-              English
-            </SplitButton>
+            <TransitionButton className="w-full">English</TransitionButton>
           </Link>
           <Link href={"/assets/cv/henrique-almeida-cv-pt.pdf"} download>
-            <SplitButton className="bg-[#0E2148] text-background !p-2 rounded font-medium font-mono">
-              Portuguese
-            </SplitButton>
+            <TransitionButton className="w-full">Portuguese</TransitionButton>
           </Link>
-        </div>
+        </DialogFooter>
       </DialogContent>
     </Dialog>
   );

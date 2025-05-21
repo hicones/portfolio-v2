@@ -34,7 +34,7 @@ export const RevealSection = () => {
       <div className="absolute inset-0 bg-background mix-blend-difference flex items-center flex-col gap-4">
         <div className="bg-background size-6 lg:size-12 rounded-full animate-fade-in" />
         <motion.h2
-          className="text-background animate-fade font-mono text-3xl lg:text-7xl xl:text-8xl font-bold pt-36"
+          className="text-background animate-fade font-mono text-[9vw] lg:text-[5vw] font-bold pt-36"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

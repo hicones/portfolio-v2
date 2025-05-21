@@ -67,7 +67,7 @@ export const Footer = () => {
         </motion.div>
 
         <motion.div className="mb-12" variants={itemVariants}>
-          <h3 className="font-heading text-[10rem] font-black">Hicones Tech</h3>
+          <h3 className="font-heading text-[11vw] font-black">Hicones Tech</h3>
         </motion.div>
 
         <div className="border-t border-stone-600 pt-4 flex flex-col md:flex-row justify-between items-center font-inter text-sm">
