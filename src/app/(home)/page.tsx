@@ -6,6 +6,7 @@ import { ContactSection } from "./components/contact-section";
 import { Footer } from "@/components/app/footer";
 import { RevealSection } from "./components/reaveal-section";
 import { WorkSection } from "./components/work-section";
+import { BlogsSection } from "./components/blogs-section";
 
 export default async function HomePage() {
   return (
@@ -43,6 +44,7 @@ export default async function HomePage() {
         <AboutSection />
         <RevealSection />
         <WorkSection />
+        <BlogsSection />
         <ContactSection />
         <Footer />
       </main>
