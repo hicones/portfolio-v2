@@ -172,18 +172,23 @@ h1 {
 }
 
 .transitionButton {
-  @apply relative hover:text-background  overflow-hidden flex justify-center items-center outline-2;
+  @apply relative hover:text-background overflow-hidden flex justify-center items-center outline-2;
   &::before {
     content: "";
     position: absolute;
     inset: 0;
     background-color: var(--foreground);
     translate: 0% 200%;
-    transition: translate 0.5s ease;
+    transition: all 0.5s ease;
     z-index: 0;
+    width: 20%;
+    scale: 1.5;
+    margin: 0 auto;
+    border-radius: 100%;
   }
 
   &:hover::before {
     translate: 0% 0%;
+    width: 100%;
   }
 }

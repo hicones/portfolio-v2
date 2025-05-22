@@ -15,7 +15,7 @@ export const DownloadCVButton = () => {
   return (
     <Dialog>
       <DialogTrigger>
-        <TransitionButton>Download CV</TransitionButton>
+        <TransitionButton isButton={false}>Download CV</TransitionButton>
       </DialogTrigger>
       <DialogContent className="w-full">
         <DialogHeader>
