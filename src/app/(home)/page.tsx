@@ -7,14 +7,17 @@ import { Footer } from "@/components/app/footer";
 import { RevealSection } from "./components/reaveal-section";
 import { WorkSection } from "./components/work-section";
 import { BlogsSection } from "./components/blogs-section";
+import { sleep } from "@/lib/utils";
 
 export default async function HomePage() {
+  await sleep(3000);
+
   return (
     <div className="size-full relative">
       <Header />
       <main className="flex flex-col size-full flex-1 gap-4 bg-background relative">
         <div>
-          <div className="bg-none flex flex-col justify-center gap-4 px-10 py-16 sticky top-0 mix-blend-difference z-10">
+          <div className="bg-none flex flex-col justify-center gap-4 px-10 py-16 lg:pt-16 lg:pb-32 sticky top-0 mix-blend-difference z-10">
             <section className="flex w-full lg:items-end justify-between flex-col lg:flex-row gap-4">
               <div className="flex gap-6 items-center ">
                 <div className="bg-background size-6 lg:size-12 rounded-full animate-fade-in" />
@@ -31,12 +34,13 @@ export default async function HomePage() {
           </div>
           <section className="h-[90lvh] bg-foreground flex items-center justify-center relative">
             <video
-              src="/assets/template_video.mp4"
+              src="/assets/template.mp4"
               loop
-              poster="/assets/template_poster.avif"
-              playsInline
-              autoPlay={true}
+              poster="/assets/frame.jpg"
+              autoPlay
+              muted
               controls={false}
+              className="size-full"
             ></video>
           </section>
         </div>

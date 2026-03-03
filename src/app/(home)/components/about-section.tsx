@@ -38,7 +38,7 @@ export const AboutSection = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          src="/assets/foto1.jpg"
+          src="/assets/profile_pic.jpeg"
           alt="Henrique Almeida"
           className="rounded-lg shadow-sm max-w-xs object-cover"
         />

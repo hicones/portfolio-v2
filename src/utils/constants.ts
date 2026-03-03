@@ -96,9 +96,10 @@ export const MockWorkItems = [
 
 export const MockBlogsItems = [
   {
-    title: "Blog 1",
-    description: "Description of blog 1",
+    title:
+      "Utilizando Search Params no Server Side com Next.js: Um Guia Prático",
+    description: "Como utilizar search params no server side com Next.js",
     image: "/assets/blog_1.png",
-    link: "https://example.com/project1",
+    link: "https://medium.com/@devhenrique.almeida/utilizando-search-params-no-server-side-com-next-js-um-guia-prático-fffb129bf101",
   },
 ];

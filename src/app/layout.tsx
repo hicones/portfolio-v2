@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Poppins, Fira_Code } from "next/font/google";
+import { Inter, Fira_Code, Urbanist } from "next/font/google";
 import "@/styles/globals.css";
 import { ScrollProgressBar } from "@/components/app/scroll-progress-bar";
 
 const inter = Inter({ subsets: ["latin"] });
 const firaCode = Fira_Code({ subsets: ["latin"] });
-const poppins = Poppins({
+const urbanist = Urbanist({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
 });
@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} ${poppins.className} ${firaCode.className} antialiased`}
+        className={`${inter.className} ${firaCode.className} ${urbanist.className} antialiased`}
         cz-shortcut-listen="true"
       >
         <div className="min-h-screen">
