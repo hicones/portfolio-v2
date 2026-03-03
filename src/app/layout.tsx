@@ -13,6 +13,9 @@ const urbanist = Urbanist({
 export const metadata: Metadata = {
   title: "Hicones Tech",
   description: "hicones.tech portfolio website",
+  icons: {
+    icon: "/assets/hi.svg",
+  },
 };
 
 export default function RootLayout({

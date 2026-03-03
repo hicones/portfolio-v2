@@ -1,8 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* add unsplash to images*/
-
   images: {
     remotePatterns: [
       {
@@ -10,6 +8,10 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+
+  assetPrefix: "/portfolio",
+
+  output: "standalone",
 };
 
 export default nextConfig;
