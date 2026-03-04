@@ -1,12 +1,17 @@
+import { Header } from "@/components/app/header";
+import { Footer } from "@/components/app/footer";
+import { AboutCustomSection } from "./components/about-custom-section";
+import { PageTitle } from "@/components/ui/page-title";
+
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-white text-black">
-      <h1 className="text-4xl font-bold">About Me</h1>
-      <p className="mt-4">
-        I am a software engineer with a passion for building web applications. I
-        have experience in various technologies and frameworks, and I love
-        learning new things.
-      </p>
+    <div className="size-full relative min-h-screen flex flex-col">
+      <Header />
+      <main className="flex flex-col flex-1 bg-background relative pt-32 lg:pt-40">
+        <PageTitle title="ABOUT" />
+        <AboutCustomSection />
+      </main>
+      <Footer />
     </div>
   );
 }

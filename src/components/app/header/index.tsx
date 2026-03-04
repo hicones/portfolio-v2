@@ -9,7 +9,7 @@ import { useState } from "react";
 import { menu_options } from "@/utils/constants";
 import { MobileMenu } from "./mobile-menu";
 
-export const Header = () => {
+export const Header = ({ darkMode = false }: { darkMode?: boolean }) => {
   const pathname = usePathname();
   const [scrollDirection, setScrollDirection] = useState<"down" | "up">("up");
 
@@ -28,16 +28,22 @@ export const Header = () => {
       id="navheader"
       className={cn(
         "sticky top-0 left-0 right-0 z-50 px-4 md:px-10 py-4 md:py-4 font-heading transition-all duration-300 animate-fade-top",
-        scrollDirection === "down" && "opacity-0 overflow-hidden"
+        scrollDirection === "down" && "opacity-0 overflow-hidden",
       )}
     >
       <div
         className={cn(
           "mx-auto flex justify-between items-center transition-all duration-300",
-          scrollDirection === "down" && "-translate-y-full"
+          scrollDirection === "down" && "-translate-y-full",
         )}
       >
-        <TransitionLink href="/" className="text-xl sm:text-2xl font-medium">
+        <TransitionLink
+          href="/"
+          className={cn(
+            "text-xl sm:text-2xl font-medium",
+            darkMode && "text-background",
+          )}
+        >
           <SplitButton datatext="Frontend Developer">Hicones.</SplitButton>
         </TransitionLink>
         <nav className="hidden sm:flex items-center gap-6">
@@ -48,7 +54,8 @@ export const Header = () => {
               href={option.href}
               className={cn(
                 "transition-all text-lg",
-                pathname === option.href && "text-gray-800 font-semibold"
+                pathname === option.href && "text-gray-800 font-semibold",
+                darkMode && "text-background",
               )}
             >
               <SplitButton>{option.name}</SplitButton>

@@ -1,12 +1,17 @@
-export default function BlogPage() {
+import { Header } from "@/components/app/header";
+import { Footer } from "@/components/app/footer";
+import { PageTitle } from "@/components/ui/page-title";
+import { BlogsCustomSection } from "./components/blogs-custom-section";
+
+export default function BlogsPage() {
   return (
-    <div className="min-h-screen">
-      <h1 className="text-4xl font-bold">About Me</h1>
-      <p className="mt-4">
-        I am a software engineer with a passion for building web applications. I
-        have experience in various technologies and frameworks, and I love
-        learning new things.
-      </p>
+    <div className="size-full relative min-h-screen flex flex-col">
+      <Header />
+      <main className="flex flex-col flex-1 bg-background relative pt-32 lg:pt-40">
+        <PageTitle title="BLOGS" />
+        <BlogsCustomSection />
+      </main>
+      <Footer />
     </div>
   );
 }

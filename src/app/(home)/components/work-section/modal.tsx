@@ -60,19 +60,24 @@ export const Modal = ({
           className="size-full absolute transition-all duration-500 ease-[cubic-bezier(0.76, 0, 0.24, 1)]"
         >
           {projects.map((project, i) => {
-            const { image } = project;
+            const { image, id } = project;
             return (
               <div
                 className="size-full flex items-center justify-center"
                 key={`modal_${i}`}
               >
-                <Image
-                  src={image}
-                  width={300}
-                  height={0}
-                  className="h-auto w-full aspect-video object-contain "
-                  alt="image"
-                />
+                <motion.div
+                  layoutId={`project-image-${id}`}
+                  className="flex items-center justify-center w-full"
+                >
+                  <Image
+                    src={image}
+                    width={300}
+                    height={0}
+                    className="h-auto w-full aspect-video object-contain"
+                    alt="image"
+                  />
+                </motion.div>
               </div>
             );
           })}

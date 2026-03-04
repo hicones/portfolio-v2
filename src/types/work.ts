@@ -1,4 +1,5 @@
 export type WorkItemModel = {
+  id: string;
   title: string;
   description: string;
   tags: string[];

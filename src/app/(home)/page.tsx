@@ -7,11 +7,8 @@ import { Footer } from "@/components/app/footer";
 import { RevealSection } from "./components/reaveal-section";
 import { WorkSection } from "./components/work-section";
 import { BlogsSection } from "./components/blogs-section";
-import { sleep } from "@/lib/utils";
 
 export default async function HomePage() {
-  await sleep(3000);
-
   return (
     <div className="size-full relative">
       <Header />

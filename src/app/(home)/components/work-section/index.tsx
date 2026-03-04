@@ -8,6 +8,7 @@ import { motion } from "motion/react";
 import { TransitionButton } from "@/components/app/transition-button";
 import Link from "next/link";
 import { MockWorkItems } from "@/utils/constants";
+import { useRouter } from "next/navigation";
 
 export const WorkSection = () => {
   const [modal, setModal] = useState({
@@ -54,6 +55,7 @@ export const WorkSection = () => {
 };
 
 const ProjectItem = ({ index, item, setModal }: WorkSectionProps) => {
+  const router = useRouter();
   return (
     <div
       onMouseEnter={() => {
@@ -62,8 +64,11 @@ const ProjectItem = ({ index, item, setModal }: WorkSectionProps) => {
       onMouseLeave={() => {
         setModal({ active: false, index });
       }}
+      onClick={() => {
+        router.push(`/work/${item.id}`);
+      }}
       className={cn(
-        "flex flex-col lg:flex-row lg:items-center w-full lg:justify-between cursor-pointer transition-all py-12 px-24 border-t border-[#C9C9C9] last-of-type:border-b hover:opacity-50 group"
+        "flex flex-col lg:flex-row lg:items-center w-full lg:justify-between cursor-pointer transition-all py-12 px-24 border-t border-[#C9C9C9] last-of-type:border-b hover:opacity-50 group",
       )}
     >
       <h2 className="text-3xl lg:text-6xl m-0 transition-all duration-[400ms] group-hover:-translate-x-2.5">
@@ -88,5 +93,3 @@ const ProjectItem = ({ index, item, setModal }: WorkSectionProps) => {
     </div>
   );
 };
-
-
