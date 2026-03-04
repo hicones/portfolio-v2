@@ -68,9 +68,10 @@ export const Header = ({ darkMode = false }: { darkMode?: boolean }) => {
               </TransitionLink>
             ))}
           </nav>
-
-          <div className="flex justify-end items-center gap-4">
+          <div className="hidden lg:flex items-center">
             <LocaleSwitcher darkMode={darkMode} />
+          </div>
+          <div className="flex justify-end items-center gap-4">
             <MobileMenu />
           </div>
         </div>

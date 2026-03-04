@@ -21,7 +21,7 @@ export default async function HomePage() {
             <section className="flex w-full lg:items-end justify-between flex-col lg:flex-row gap-4">
               <div className="flex gap-6 items-center ">
                 <div className="bg-background size-6 lg:size-12 rounded-full animate-fade-in" />
-                <h1 className="!text-background animate-fade">
+                <h1 className="text-background! animate-fade">
                   <FlipWords words={t.raw("flipWords1")} /> <br />
                   <FlipWords words={t.raw("flipWords2")} />
                 </h1>
@@ -29,7 +29,7 @@ export default async function HomePage() {
               <SocialLinks />
             </section>
           </div>
-          <section className="h-[90lvh] bg-foreground flex items-center justify-center relative">
+          <section className="lg:h-[90lvh] h-[65lvh] bg-foreground flex items-center justify-center relative">
             <video
               src="/assets/template.mp4"
               loop

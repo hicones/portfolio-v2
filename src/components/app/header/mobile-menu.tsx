@@ -5,6 +5,7 @@ import { usePathname } from "@/i18n/routing";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
+import { LocaleSwitcher } from "../locale-switcher";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -54,12 +55,16 @@ export const MobileMenu = () => {
       >
         {openMenu ? "• close" : "• menu"}
       </button>
+
       <div
         className={cn(
           "translate-y-0 h-screen z-0 transition-all opacity-100 duration-500 fixed top-0 left-0 flex flex-col size-full divide-y divide-[#B7ADAD26]/15 text-background bg-[#1B1C1F]",
           { "opacity-0 -translate-y-full -z-10 h-0": !openMenu },
         )}
       >
+        <div className="flex justify-end items-center absolute top-4 left-5">
+          <LocaleSwitcher darkMode />
+        </div>
         <motion.ul
           className="flex flex-1 flex-col gap-4 mt-4 items-start justify-center px-8"
           variants={containerVariants}

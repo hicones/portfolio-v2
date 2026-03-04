@@ -19,13 +19,13 @@ export const WorkSection = () => {
   });
 
   return (
-    <section className="flex flex-col items-center lg:py-10 relative container mx-auto gap-4">
+    <section className="flex flex-col items-center lg:py-10 relative container mx-auto gap-4 overflow-x-hidden">
       <motion.h2
         initial={{ opacity: 0, y: -100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ margin: "-100px" }}
-        className="text-[30vw] font-normal text-[#797979]"
+        className="lg:text-[30vw] text-[18vw] font-normal text-[#797979]"
       >
         {t("title")}
       </motion.h2>
@@ -75,15 +75,15 @@ const ProjectItem = ({ index, item, setModal }: WorkSectionProps) => {
         "flex flex-col lg:flex-row lg:items-center w-full lg:justify-between cursor-pointer transition-all py-12 px-24 border-t border-[#C9C9C9] last-of-type:border-b hover:opacity-50 group",
       )}
     >
-      <h2 className="text-3xl lg:text-6xl m-0 transition-all duration-[400ms] group-hover:-translate-x-2.5">
+      <h2 className="text-3xl lg:text-6xl m-0 transition-all duration-400 group-hover:-translate-x-2.5">
         {item.title}
       </h2>
       <div>
-        <p className="font-light transition-all duration-[400ms] group-hover:-translate-x-2.5">
+        <p className="font-light transition-all duration-400 group-hover:-translate-x-2.5">
           {item.description}
         </p>
 
-        <div className="flex gap-2 mt-2 transition-all duration-[400ms] group-hover:-translate-x-2.5">
+        <div className="flex gap-2 mt-2 transition-all duration-400 group-hover:-translate-x-2.5">
           {item.tags.map((tag, index) => (
             <span
               key={index}
