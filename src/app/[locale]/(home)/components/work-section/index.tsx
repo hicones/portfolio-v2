@@ -6,11 +6,13 @@ import { useState } from "react";
 import { Modal } from "./modal";
 import { motion } from "motion/react";
 import { TransitionButton } from "@/components/app/transition-button";
-import Link from "next/link";
 import { MockWorkItems } from "@/utils/constants";
-import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Link, useRouter } from "@/i18n/routing";
 
 export const WorkSection = () => {
+  const t = useTranslations("WorkSection");
+
   const [modal, setModal] = useState({
     active: false,
     index: 0,
@@ -25,7 +27,7 @@ export const WorkSection = () => {
         viewport={{ margin: "-100px" }}
         className="text-[30vw] font-normal text-[#797979]"
       >
-        WORK
+        {t("title")}
       </motion.h2>
       <div className="flex items-center justify-center relative w-full">
         <motion.div
@@ -48,7 +50,9 @@ export const WorkSection = () => {
         <Modal modal={modal} projects={MockWorkItems} />
       </div>
       <Link href={"/work"}>
-        <TransitionButton className="mt-20">All Projects</TransitionButton>
+        <TransitionButton className="mt-20">
+          {t("allProjects")}
+        </TransitionButton>
       </Link>
     </section>
   );

@@ -1,10 +1,10 @@
 "use client";
 
 import { sleep } from "@/lib/utils";
-import Link, { LinkProps } from "next/link";
-import { useRouter } from "next/navigation";
+import { Link, useRouter } from "@/i18n/routing";
+import { ComponentProps } from "react";
 
-interface TransitionLinkProps extends LinkProps {
+interface TransitionLinkProps extends ComponentProps<typeof Link> {
   children: React.ReactNode;
   className?: string;
 }
@@ -17,7 +17,7 @@ export const TransitionLink = ({
   const router = useRouter();
 
   const handleTransition = async (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
   ) => {
     e.preventDefault();
 

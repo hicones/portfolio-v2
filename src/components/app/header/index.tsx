@@ -2,16 +2,19 @@
 
 import { SplitButton } from "../split-button";
 import { TransitionLink } from "../transition-link";
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import { useState } from "react";
 import { menu_options } from "@/utils/constants";
 import { MobileMenu } from "./mobile-menu";
+import { LocaleSwitcher } from "../locale-switcher";
+import { useTranslations } from "next-intl";
 
 export const Header = ({ darkMode = false }: { darkMode?: boolean }) => {
   const pathname = usePathname();
   const [scrollDirection, setScrollDirection] = useState<"down" | "up">("up");
+  const t = useTranslations("Navigation");
 
   const { scrollY } = useScroll();
 
@@ -46,24 +49,31 @@ export const Header = ({ darkMode = false }: { darkMode?: boolean }) => {
         >
           <SplitButton datatext="Frontend Developer">Hicones.</SplitButton>
         </TransitionLink>
-        <nav className="hidden sm:flex items-center gap-6">
-          {menu_options.map((option) => (
-            <TransitionLink
-              key={option.name}
-              scroll
-              href={option.href}
-              className={cn(
-                "transition-all text-lg",
-                pathname === option.href && "text-gray-800 font-semibold",
-                darkMode && "text-background",
-              )}
-            >
-              <SplitButton>{option.name}</SplitButton>
-            </TransitionLink>
-          ))}
-        </nav>
+        <div className="flex gap-4">
+          <nav className="hidden sm:flex items-center gap-6">
+            {menu_options.map((option) => (
+              <TransitionLink
+                key={option.name}
+                scroll
+                href={option.href}
+                className={cn(
+                  "transition-all text-lg",
+                  pathname === option.href && "text-gray-800 font-semibold",
+                  darkMode && "text-background",
+                )}
+              >
+                <SplitButton>
+                  {t(option.name.toLowerCase() as Parameters<typeof t>[0])}
+                </SplitButton>
+              </TransitionLink>
+            ))}
+          </nav>
 
-        <MobileMenu />
+          <div className="flex justify-end items-center gap-4">
+            <LocaleSwitcher darkMode={darkMode} />
+            <MobileMenu />
+          </div>
+        </div>
       </div>
     </header>
   );

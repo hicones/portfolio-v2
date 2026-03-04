@@ -1,5 +1,6 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import * as motion from "motion/react-client";
+import { useTranslations } from "next-intl";
 import {
   containerVariants,
   itemVariants,
@@ -7,6 +8,7 @@ import {
 } from "@/utils/constants";
 
 export const Footer = () => {
+  const t = useTranslations("Footer");
   return (
     <footer className="relative h-fit bg-foreground rounded-t-[4rem] text-background">
       <motion.div
@@ -31,7 +33,9 @@ export const Footer = () => {
           variants={itemVariants}
         >
           <div>
-            <h4 className="font-poppins text-xl font-bold mb-6">Contact</h4>
+            <h4 className="font-poppins text-xl font-bold mb-6">
+              {t("contact")}
+            </h4>
             <address className="font-inter not-italic">
               <p>São Paulo - SP</p>
               <p>Brazil</p>
@@ -47,7 +51,9 @@ export const Footer = () => {
           </div>
 
           <div>
-            <h4 className="font-poppins text-xl font-bold mb-6">FOLLOW</h4>
+            <h4 className="font-poppins text-xl font-bold mb-6">
+              {t("follow")}
+            </h4>
             <ul className="space-y-2 font-inter">
               {social_links.map((link) => (
                 <li key={link.name}>
@@ -72,9 +78,7 @@ export const Footer = () => {
 
         <div className="border-t border-stone-600 pt-4 flex flex-col md:flex-row justify-between items-center font-inter text-sm">
           <div>
-            <p>
-              ©{new Date().getFullYear()} Hicones Tech — All rights reserved.
-            </p>
+            <p>{t("rights", { year: new Date().getFullYear() })}</p>
           </div>
           <p>{new Date().toLocaleDateString()}</p>
         </div>

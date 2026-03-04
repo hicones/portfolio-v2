@@ -5,6 +5,9 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { DownloadCVButton } from "@/components/download-cv";
 import { MockSkills, MockExperience, MockEducation } from "@/utils/about-data";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import profilePic from "../../../../../public/assets/profile_pic.jpeg";
 
 export const AboutCustomSection = () => {
   return (
@@ -18,6 +21,7 @@ export const AboutCustomSection = () => {
 };
 
 const HeroSection = () => {
+  const t = useTranslations("About");
   return (
     <div className="flex flex-col gap-16 lg:gap-24 items-center w-full justify-evenly">
       <motion.p
@@ -27,9 +31,7 @@ const HeroSection = () => {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        A frontend developer specializing in website creation, with experience
-        collaborating with designers and backend developers, and integrating
-        animations and 3D graphics for a unique visual experience.
+        {t("headline")}
       </motion.p>
 
       <div className="flex gap-12 items-center w-full justify-center lg:justify-between flex-col-reverse lg:flex-row max-w-6xl">
@@ -41,18 +43,10 @@ const HeroSection = () => {
           className="flex flex-col gap-6 max-w-2xl"
         >
           <h2 className="text-4xl lg:text-5xl font-bold tracking-tight text-foreground">
-            I am Henrique Almeida
+            {t("title")}
           </h2>
           <p className="text-lg lg:text-xl text-gray-500 leading-relaxed">
-            I am a senior frontend developer with over{" "}
-            <span className="font-semibold text-foreground">
-              {getExactAge(2019, 1, 23)} years
-            </span>{" "}
-            of experience in creating websites and web applications. I have a
-            strong background in HTML, CSS, and JavaScript, and I am proficient
-            in frameworks such as React and Next.js. I also have experience with
-            3D graphics using Three.js, and animations using GSAP and Framer
-            Motion.
+            {t("description", { years: getExactAge(2019, 1, 23) })}
           </p>
           <div className="mt-4">
             <DownloadCVButton />
@@ -72,9 +66,11 @@ const HeroSection = () => {
           className="relative group"
         >
           <div className="absolute inset-0 bg-blue-500/20 rounded-2xl blur-2xl group-hover:bg-blue-500/30 transition-all duration-500" />
-          <img
-            src="/assets/profile_pic.jpeg"
+          <Image
+            src={profilePic}
             alt="Henrique Almeida"
+            width={500}
+            height={500}
             className="rounded-2xl shadow-2xl max-w-sm w-full object-cover relative z-10 hover:scale-[1.02] transition-transform duration-500"
           />
         </motion.div>
@@ -84,6 +80,7 @@ const HeroSection = () => {
 };
 
 const SkillsSection = () => {
+  const t = useTranslations("AboutCustom");
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -112,9 +109,7 @@ const SkillsSection = () => {
         viewport={{ once: true }}
         className="flex items-center gap-4 mb-12"
       >
-        <h3 className="text-4xl font-bold text-foreground">
-          Expertise & Skills
-        </h3>
+        <h3 className="text-4xl font-bold text-foreground">{t("expertise")}</h3>
         <div className="h-[2px] flex-1 bg-gray-200 ml-4 rounded-full" />
       </motion.div>
 
@@ -146,6 +141,7 @@ const SkillsSection = () => {
 };
 
 const TimelineSection = () => {
+  const t = useTranslations("AboutCustom");
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -162,7 +158,9 @@ const TimelineSection = () => {
         viewport={{ once: true }}
         className="flex items-center gap-4 mb-16"
       >
-        <h3 className="text-4xl font-bold text-foreground">Career Timeline</h3>
+        <h3 className="text-4xl font-bold text-foreground">
+          {t("careerTimeline")}
+        </h3>
         <div className="h-[2px] flex-1 bg-gray-200 ml-4 rounded-full" />
       </motion.div>
 
@@ -224,6 +222,7 @@ const TimelineSection = () => {
 };
 
 const EducationSection = () => {
+  const t = useTranslations("AboutCustom");
   return (
     <div className="flex flex-col w-full max-w-5xl mt-10 mb-20">
       <motion.div
@@ -232,7 +231,7 @@ const EducationSection = () => {
         viewport={{ once: true }}
         className="flex items-center gap-4 mb-12"
       >
-        <h3 className="text-4xl font-bold text-foreground">Education</h3>
+        <h3 className="text-4xl font-bold text-foreground">{t("education")}</h3>
         <div className="h-[2px] flex-1 bg-gray-200 ml-4 rounded-full" />
       </motion.div>
 

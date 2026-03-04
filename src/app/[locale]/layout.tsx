@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Inter, Fira_Code, Urbanist } from "next/font/google";
 import "@/styles/globals.css";
 import { ScrollProgressBar } from "@/components/app/scroll-progress-bar";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 
 const inter = Inter({ subsets: ["latin"] });
 const firaCode = Fira_Code({ subsets: ["latin"] });
@@ -18,22 +22,32 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
+  const { locale } = await params;
+  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
+    notFound();
+  }
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${inter.className} ${firaCode.className} ${urbanist.className} antialiased`}
         cz-shortcut-listen="true"
       >
-        <div className="min-h-screen">
-          {children}
+        <NextIntlClientProvider messages={messages}>
+          <div className="min-h-screen">
+            {children}
 
-          <ScrollProgressBar />
-        </div>
+            <ScrollProgressBar />
+          </div>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

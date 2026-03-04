@@ -12,7 +12,8 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Modal } from "../../(home)/components/work-section/modal";
 import { WorkItemModel } from "@/types/work";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 export const WorkCustomSection = ({
   viewMode,
@@ -25,6 +26,7 @@ export const WorkCustomSection = ({
     active: false,
     index: 0,
   });
+  const t = useTranslations("Work");
 
   return (
     <section
@@ -58,7 +60,7 @@ export const WorkCustomSection = ({
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             />
           )}
-          List View
+          {t("listView")}
         </button>
         <button
           onClick={() => setViewMode("gallery")}
@@ -74,7 +76,7 @@ export const WorkCustomSection = ({
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             />
           )}
-          Gallery View
+          {t("galleryView")}
         </button>
       </motion.div>
 
@@ -119,6 +121,7 @@ const InfiniteCanvasGallery = ({ items }: { items: WorkItemModel[] }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const scale = useMotionValue(1);
   const smoothScale = useSpring(scale, { stiffness: 300, damping: 30 });
+  const t = useTranslations("Work");
 
   useEffect(() => {
     const handleWheel = (e: WheelEvent) => {
@@ -166,7 +169,7 @@ const InfiniteCanvasGallery = ({ items }: { items: WorkItemModel[] }) => {
       ref={containerRef}
     >
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-white/10 px-6 py-2 rounded-full backdrop-blur-md text-white/50 z-50 pointer-events-none font-medium text-sm tracking-widest uppercase">
-        Scroll to Zoom • Drag to Pan
+        {t("scrollToZoom")}
       </div>
 
       <motion.div
@@ -255,7 +258,9 @@ const ProjectListItem = ({
 }: {
   index: number;
   item: WorkItemModel;
-  setModal: any;
+  setModal: React.Dispatch<
+    React.SetStateAction<{ active: boolean; index: number }>
+  >;
 }) => {
   const router = useRouter();
 

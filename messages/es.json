@@ -1,0 +1,83 @@
+{
+  "Home": {
+    "title": "Hicones Tech",
+    "description": "Portafolio de un Desarrollador Frontend Senior"
+  },
+  "About": {
+    "headline": "Un desarrollador frontend especializado en la creación de sitios web, con experiencia colaborando con diseñadores y desarrolladores backend, e integrando animaciones y gráficos 3D para una experiencia visual única.",
+    "title": "Soy Henrique Almeida",
+    "description": "Soy un desarrollador frontend senior con más de {years} años de experiencia en la creación de sitios y aplicaciones web. Tengo una sólida base en HTML, CSS y JavaScript, y soy competente en frameworks como React y Next.js. También tengo experiencia en gráficos 3D utilizando Three.js y animaciones con GSAP y Framer."
+  },
+  "Contact": {
+    "pageTitle": "CONTACTO",
+    "title": "Ponte en contacto",
+    "description": "Siempre estoy abierto a discutir nuevos proyectos, ideas creativas u oportunidades para ser parte de tu visión.",
+    "namePlaceholder": "Tu nombre",
+    "emailPlaceholder": "Tu correo electrónico",
+    "messagePlaceholder": "Cuéntanos sobre tu proyecto",
+    "sendMessage": "Enviar Mensaje"
+  },
+  "Blogs": {
+    "readMore": "Leer más"
+  },
+  "Hero": {
+    "flipWords1": ["Henrique", "Desarrollo", "Diseño", "Experiencia de"],
+    "flipWords2": ["Almeida", "Web", "Web", "Usuario"]
+  },
+  "Reveal": {
+    "line1": "Desarrollo Web",
+    "line2": "Experiencia en Diseño",
+    "line3": "Especialista React"
+  },
+  "BlogsCustom": {
+    "pageTitle": "BLOGS",
+    "title": "Últimos Artículos",
+    "description": "Pensamientos, aprendizajes y artículos sobre desarrollo web, diseño y tecnología.",
+    "article": "Artículo",
+    "minRead": "{readTime} min de lectura"
+  },
+  "Footer": {
+    "contact": "Contacto",
+    "follow": "SÍGUEME",
+    "rights": "©{year} Hicones Tech — Todos los derechos reservados."
+  },
+  "WorkDetails": {
+    "back": "Volver a Proyectos",
+    "overview": "Descripción General",
+    "overviewText": "Esta es una visión detallada del proyecto. Los datos simulados proporcionan un breve '{description}', pero en un escenario real, se detallarían los desafíos enfrentados, la arquitectura elegida, colaboraciones y el impacto final del producto. Usando restricciones de framer-motion, podemos crear experiencias visuales muy ricas uniendo componentes de lista y detalles sin interrupciones.",
+    "role": "Rol",
+    "roleValue": "Frontend Senior",
+    "timeline": "Duración",
+    "timelineValue": "2 meses",
+    "visitLive": "Visitar Sitio",
+    "viewSource": "Ver Código"
+  },
+  "AboutCustom": {
+    "pageTitle": "SOBRE MÍ",
+    "expertise": "Habilidades y Experiencia",
+    "careerTimeline": "Línea de Tiempo",
+    "education": "Educación"
+  },
+  "WorkSection": {
+    "title": "TRABAJO",
+    "allProjects": "Ver Todos"
+  },
+  "Navigation": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "work": "Trabajo",
+    "blogs": "Blogs",
+    "contact": "Contacto"
+  },
+  "Work": {
+    "listView": "Lista",
+    "galleryView": "Galería",
+    "scrollToZoom": "Desplazar para Zoom • Arrastrar para Mover",
+    "overview": "Descripción General",
+    "role": "Rol",
+    "timeline": "Duración",
+    "visitLiveSite": "Visitar Sitio",
+    "viewSource": "Ver Código",
+    "backToWork": "Volver a Proyectos"
+  }
+}

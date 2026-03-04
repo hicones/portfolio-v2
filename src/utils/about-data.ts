@@ -11,7 +11,6 @@ import {
   SiGit,
   SiFigma,
   SiDocker,
-  SiAwslambda,
   SiFirebase,
   SiStripe,
   SiJest,

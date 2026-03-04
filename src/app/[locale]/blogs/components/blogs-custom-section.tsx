@@ -6,8 +6,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { BlogItemModel } from "@/types/blog";
 import { LuArrowUpRight } from "react-icons/lu";
+import { useTranslations } from "next-intl";
 
 export const BlogsCustomSection = () => {
+  const t = useTranslations("BlogsCustom");
   const blogsList = Array(6)
     .fill(null)
     .map((_, i) => ({
@@ -24,7 +26,7 @@ export const BlogsCustomSection = () => {
           transition={{ duration: 0.6 }}
           className="text-foreground text-5xl md:text-7xl font-bold tracking-tight"
         >
-          Latest Insights
+          {t("title")}
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -32,8 +34,7 @@ export const BlogsCustomSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-gray-500 text-lg md:text-xl"
         >
-          Thoughts, learnings, and articles about web development, design, and
-          tech.
+          {t("description")}
         </motion.p>
       </div>
 
@@ -47,6 +48,7 @@ export const BlogsCustomSection = () => {
 };
 
 const BlogCard = ({ item, index }: { item: BlogItemModel; index: number }) => {
+  const t = useTranslations("BlogsCustom");
   const readTime = (index % 5) + 3;
 
   return (
@@ -69,7 +71,7 @@ const BlogCard = ({ item, index }: { item: BlogItemModel; index: number }) => {
 
       <div className="flex flex-col flex-1 p-6 md:p-8 bg-white z-10 relative">
         <span className="text-sm font-medium text-blue-600 mb-3 block">
-          Article
+          {t("article")}
         </span>
         <h3 className="text-2xl font-bold text-foreground mb-4 leading-tight group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
           {item.title}
@@ -80,7 +82,7 @@ const BlogCard = ({ item, index }: { item: BlogItemModel; index: number }) => {
 
         <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between">
           <span className="text-sm font-medium text-gray-400">
-            {readTime} min read
+            {t("minRead", { readTime })}
           </span>
           <Link
             href={item.link}

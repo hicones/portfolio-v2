@@ -7,8 +7,11 @@ import { Footer } from "@/components/app/footer";
 import { RevealSection } from "./components/reaveal-section";
 import { WorkSection } from "./components/work-section";
 import { BlogsSection } from "./components/blogs-section";
+import { getTranslations } from "next-intl/server";
 
 export default async function HomePage() {
+  const t = await getTranslations("Hero");
+
   return (
     <div className="size-full relative">
       <Header />
@@ -19,11 +22,8 @@ export default async function HomePage() {
               <div className="flex gap-6 items-center ">
                 <div className="bg-background size-6 lg:size-12 rounded-full animate-fade-in" />
                 <h1 className="!text-background animate-fade">
-                  <FlipWords words={["Henrique", "Web", "Web ", "User"]} />{" "}
-                  <br />
-                  <FlipWords
-                    words={["Almeida", "Development", "Design", "Experience"]}
-                  />
+                  <FlipWords words={t.raw("flipWords1")} /> <br />
+                  <FlipWords words={t.raw("flipWords2")} />
                 </h1>
               </div>
               <SocialLinks />

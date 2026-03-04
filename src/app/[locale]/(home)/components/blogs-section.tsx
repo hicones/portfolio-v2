@@ -12,6 +12,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 
 export const BlogsSection = () => {
   const containerRef = useRef(null);
@@ -32,11 +33,11 @@ export const BlogsSection = () => {
 
   const translateX = useSpring(
     useTransform(scrollYProgress, [0, 1], [0, 1000]),
-    springConfig
+    springConfig,
   );
   const translateXReverse = useSpring(
     useTransform(scrollYProgress, [0, 1], [0, -1000]),
-    springConfig
+    springConfig,
   );
 
   return (
@@ -77,6 +78,8 @@ const BlogItem = ({
   index: number;
   translate: MotionValue<number>;
 }) => {
+  const t = useTranslations("Blogs");
+
   return (
     <motion.div
       key={index}
@@ -100,7 +103,7 @@ const BlogItem = ({
           rel="noopener noreferrer"
           className="mt-4 text-foreground hover:underline font-semibold text-xl font-heading anima"
         >
-          Read more
+          {t("readMore")}
         </Link>
       </div>
     </motion.div>

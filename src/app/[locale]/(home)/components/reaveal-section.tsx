@@ -3,9 +3,11 @@
 import { containerVariants, itemVariants } from "@/utils/constants";
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 
 export const RevealSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations("Reveal");
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -43,15 +45,15 @@ export const RevealSection = () => {
         >
           <br />
           <motion.span variants={itemVariants} className="text-foreground">
-            Web Development
+            {t("line1")}
           </motion.span>
           <br />
           <motion.span variants={itemVariants} className="text-foreground">
-            Design Experience
+            {t("line2")}
           </motion.span>
           <br />
           <motion.span variants={itemVariants} className="text-foreground">
-            React Specialist
+            {t("line3")}
           </motion.span>
         </motion.h2>
       </div>

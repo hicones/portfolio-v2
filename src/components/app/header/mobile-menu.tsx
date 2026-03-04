@@ -1,9 +1,10 @@
 import { menu_options } from "@/utils/constants";
 import { TransitionLink } from "../transition-link";
 import { cn } from "@/lib/utils";
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/routing";
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -23,6 +24,7 @@ const itemVariants = {
 export const MobileMenu = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const pathname = usePathname();
+  const t = useTranslations("Navigation");
 
   useEffect(() => {
     setOpenMenu(false);
@@ -45,7 +47,7 @@ export const MobileMenu = () => {
       <button
         className={cn(
           "cursor-pointer font-heading  transition duration-300 hover:text-primary px-4 lg:pt-0 lg:px-0",
-          openMenu && "fixed top-4 right-4 z-50 text-background"
+          openMenu && "fixed top-4 right-4 z-50 text-background",
         )}
         onClick={() => setOpenMenu(!openMenu)}
         aria-label="Menu"
@@ -55,7 +57,7 @@ export const MobileMenu = () => {
       <div
         className={cn(
           "translate-y-0 h-screen z-0 transition-all opacity-100 duration-500 fixed top-0 left-0 flex flex-col size-full divide-y divide-[#B7ADAD26]/15 text-background bg-[#1B1C1F]",
-          { "opacity-0 -translate-y-full -z-10 h-0": !openMenu }
+          { "opacity-0 -translate-y-full -z-10 h-0": !openMenu },
         )}
       >
         <motion.ul
@@ -69,10 +71,10 @@ export const MobileMenu = () => {
               href="/"
               className={cn(
                 "hover:text-gray-800 hover:font-medium transition-all text-5xl",
-                pathname === "/" && "text-gray-100 font-semibold"
+                pathname === "/" && "text-gray-100 font-semibold",
               )}
             >
-              Home
+              {t("home")}
             </TransitionLink>
           </motion.li>
           {menu_options.map((option) => (
@@ -81,10 +83,10 @@ export const MobileMenu = () => {
                 href={option.href}
                 className={cn(
                   "hover:text-gray-800 hover:font-medium transition-all text-5xl",
-                  pathname === option.href && "text-gray-100 font-semibold"
+                  pathname === option.href && "text-gray-100 font-semibold",
                 )}
               >
-                {option.name}
+                {t(option.name.toLowerCase() as Parameters<typeof t>[0])}
               </TransitionLink>
             </motion.li>
           ))}

@@ -3,11 +3,13 @@
 import { MockWorkItems } from "@/utils/constants";
 import { motion } from "motion/react";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { LuArrowLeft, LuExternalLink, LuGithub } from "react-icons/lu";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 
 export const WorkDetailsSection = ({ id }: { id: string }) => {
+  const t = useTranslations("WorkDetails");
   const project = MockWorkItems.find((p) => p.id === id);
 
   if (!project) return notFound();
@@ -25,7 +27,7 @@ export const WorkDetailsSection = ({ id }: { id: string }) => {
           className="flex items-center gap-2 text-white/80 hover:text-white transition-colors uppercase text-sm font-semibold tracking-widest backdrop-blur-md bg-white/10 px-4 py-2 rounded-full border border-white/10"
         >
           <LuArrowLeft className="w-4 h-4" />
-          Back to Work
+          {t("back")}
         </Link>
       </motion.div>
 
@@ -75,34 +77,29 @@ export const WorkDetailsSection = ({ id }: { id: string }) => {
         >
           <div className="flex-1">
             <h3 className="text-2xl font-bold text-foreground mb-6">
-              Overview
+              {t("overview")}
             </h3>
             <p className="text-lg lg:text-xl text-gray-500 leading-relaxed font-light">
-              This is a detailed overview of the project. The mock data provides
-              a brief '{project.description}', but in a real-world scenario, you
-              would elaborate on the challenges faced, the architecture chosen,
-              collaborations, and the ultimate impact of the product. Using
-              frammer-motion constraints, we can create very rich visual
-              experiences bridging lists and details components seamlessly.
+              {t("overviewText", { description: project.description })}
             </p>
           </div>
 
           <div className="w-full lg:w-80 flex flex-col gap-8 shrink-0 bg-gray-50/50 p-8 rounded-3xl border border-gray-100">
             <div className="flex flex-col gap-2">
               <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">
-                Role
+                {t("role")}
               </span>
               <span className="text-lg font-medium text-foreground">
-                Senior Frontend
+                {t("roleValue")}
               </span>
             </div>
 
             <div className="flex flex-col gap-2">
               <span className="text-sm font-bold text-gray-400 uppercase tracking-widest">
-                Timeline
+                {t("timeline")}
               </span>
               <span className="text-lg font-medium text-foreground">
-                2 months
+                {t("timelineValue")}
               </span>
             </div>
 
@@ -115,7 +112,7 @@ export const WorkDetailsSection = ({ id }: { id: string }) => {
                   target="_blank"
                   className="flex items-center gap-3 py-3 px-6 bg-foreground text-background rounded-full hover:scale-105 transition-transform font-medium w-full justify-center group"
                 >
-                  Visit Live Site
+                  {t("visitLive")}
                   <LuExternalLink className="w-4 h-4 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                 </Link>
               )}
@@ -126,7 +123,7 @@ export const WorkDetailsSection = ({ id }: { id: string }) => {
                   className="flex items-center gap-3 py-3 px-6 bg-white border border-gray-200 text-foreground rounded-full hover:bg-gray-50 transition-colors font-medium w-full justify-center"
                 >
                   <LuGithub className="w-5 h-5" />
-                  View Source
+                  {t("viewSource")}
                 </Link>
               )}
             </div>
