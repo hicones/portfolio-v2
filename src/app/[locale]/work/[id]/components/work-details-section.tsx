@@ -43,7 +43,7 @@ export const WorkDetailsSection = ({ id }: { id: string }) => {
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-black/40 to-black/10" />
+        <div className="absolute inset-0 bg-linear-to-t from-background via-black/40 to-black/10" />
       </motion.div>
 
       <div className="container mx-auto px-4 -mt-32 lg:-mt-48 relative z-20 flex flex-col gap-12 max-w-5xl pb-32">
@@ -103,7 +103,7 @@ export const WorkDetailsSection = ({ id }: { id: string }) => {
               </span>
             </div>
 
-            <div className="w-full h-[1px] bg-gray-200 my-2" />
+            <div className="w-full h-px bg-gray-200 my-2" />
 
             <div className="flex flex-col gap-4">
               {project.link && (

@@ -1,13 +1,12 @@
 "use client";
 
 import { getExactAge } from "@/lib/utils";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, Variants } from "motion/react";
 import { DownloadCVButton } from "@/components/download-cv";
 import { MockSkills, MockExperience, MockEducation } from "@/utils/about-data";
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import profilePic from "../../../../../public/assets/profile_pic.jpeg";
 
 export const AboutCustomSection = () => {
   return (
@@ -67,7 +66,7 @@ const HeroSection = () => {
         >
           <div className="absolute inset-0 bg-blue-500/20 rounded-2xl blur-2xl group-hover:bg-blue-500/30 transition-all duration-500" />
           <Image
-            src={profilePic}
+            src="/assets/profile_pic.jpeg"
             alt="Henrique Almeida"
             width={500}
             height={500}
@@ -91,7 +90,7 @@ const SkillsSection = () => {
     },
   };
 
-  const item = {
+  const item: Variants = {
     hidden: { opacity: 0, y: 30, scale: 0.9 },
     show: {
       opacity: 1,

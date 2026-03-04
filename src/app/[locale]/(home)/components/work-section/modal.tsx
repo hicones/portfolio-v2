@@ -1,9 +1,9 @@
-import { motion } from "motion/react";
+import { motion, Variants } from "motion/react";
 import { WorkItemModel } from "@/types/work";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const scaleAnimation = {
+const scaleAnimation: Variants = {
   initial: { scale: 0 },
   enter: {
     scale: 1,
@@ -49,7 +49,7 @@ export const Modal = ({
         variants={scaleAnimation}
         initial="initial"
         animate={active ? "enter" : "closed"}
-        className="h-[300px] w-[400px] z-[30] fixed bg-white overflow-hidden pointer-events-none flex items-center justify-center rounded-lg shadow-lg"
+        className="h-[300px] w-[400px] z-30 fixed bg-white overflow-hidden pointer-events-none flex items-center justify-center rounded-lg shadow-lg"
         style={{
           left: `${position.x - 150}px`,
           top: `${position.y - 120}px`,
@@ -85,7 +85,7 @@ export const Modal = ({
       </motion.div>
 
       <motion.div
-        className="size-20 rounded-full text-white fixed z-[40] flex items-center justify-center text-sm font-light pointer-events-none bg-[#455CE9] select-none"
+        className="size-20 rounded-full text-white fixed z-40 flex items-center justify-center text-sm font-light pointer-events-none bg-[#455CE9] select-none"
         variants={scaleAnimation}
         initial="initial"
         animate={active ? "enter" : "closed"}

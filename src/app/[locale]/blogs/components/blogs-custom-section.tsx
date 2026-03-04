@@ -59,7 +59,7 @@ const BlogCard = ({ item, index }: { item: BlogItemModel; index: number }) => {
       transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
       className="group flex flex-col w-full bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-shadow duration-500 ease-in-out cursor-pointer relative"
     >
-      <div className="relative w-full aspect-[4/3] overflow-hidden bg-gray-100">
+      <div className="relative w-full aspect-4/3 overflow-hidden bg-gray-100">
         <Image
           src={item.image}
           alt={item.title}

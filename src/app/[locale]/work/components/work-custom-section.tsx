@@ -178,7 +178,7 @@ const InfiniteCanvasGallery = ({ items }: { items: WorkItemModel[] }) => {
         dragElastic={0.2}
         dragTransition={{ bounceStiffness: 100, bounceDamping: 20 }}
         style={{ scale: smoothScale }}
-        className="relative w-[100vw] h-[100vh] flex items-center justify-center"
+        className="relative w-screen h-screen flex items-center justify-center"
       >
         {canvasItems.map((item, index) => (
           <CanvasProjectItem key={index} item={item} index={index} />
@@ -226,7 +226,7 @@ const CanvasProjectItem = ({
         </motion.div>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/95 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       {/* Hover Content */}
       <div className="absolute inset-0 p-8 flex flex-col justify-end opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out z-10 pointer-events-none">
@@ -275,15 +275,15 @@ const ProjectListItem = ({
         "flex flex-col lg:flex-row lg:items-center w-full lg:justify-between cursor-pointer transition-all py-12 px-8 lg:px-24 border-t border-[#C9C9C9] last-of-type:border-b hover:opacity-50 group",
       )}
     >
-      <h2 className="text-3xl lg:text-6xl m-0 transition-all duration-[400ms] group-hover:-translate-x-2.5">
+      <h2 className="text-3xl lg:text-6xl m-0 transition-all duration-400 group-hover:-translate-x-2.5">
         {item.title}
       </h2>
       <div className="mt-4 lg:mt-0">
-        <p className="font-light transition-all duration-[400ms] group-hover:-translate-x-2.5 text-gray-600">
+        <p className="font-light transition-all duration-400 group-hover:-translate-x-2.5 text-gray-600">
           {item.description}
         </p>
 
-        <div className="flex gap-2 mt-2 transition-all duration-[400ms] group-hover:-translate-x-2.5 flex-wrap">
+        <div className="flex gap-2 mt-2 transition-all duration-400 group-hover:-translate-x-2.5 flex-wrap">
           {item.tags.map((tag, i) => (
             <span
               key={i}

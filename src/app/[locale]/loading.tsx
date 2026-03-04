@@ -1,5 +1,6 @@
 "use client";
 
+import { Variants } from "motion";
 import * as motion from "motion/react-client";
 
 export default function Loading() {
@@ -14,7 +15,7 @@ export default function Loading() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20, filter: "blur(4px)" },
     visible: {
       opacity: 1,
