@@ -10,7 +10,7 @@ export default async function ContactPage() {
   return (
     <div className="size-full relative min-h-screen flex flex-col">
       <Header />
-      <main className="flex flex-col flex-1 bg-background relative pt-32 lg:pt-40">
+      <main className="flex flex-col flex-1 bg-background relative pt-10 lg:pt-40">
         <PageTitle title={t("pageTitle")} className="text-[20vw]" />
         <ContactSection />
       </main>

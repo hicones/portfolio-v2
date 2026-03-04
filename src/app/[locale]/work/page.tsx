@@ -16,7 +16,7 @@ export default function WorkPage() {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5 }}
-        className="pt-12 lg:pt-16 size-full"
+        className="pt-10 lg:pt-16 size-full"
       >
         <WorkCustomSection viewMode={viewMode} setViewMode={setViewMode} />
       </motion.div>
