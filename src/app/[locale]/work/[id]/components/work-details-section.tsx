@@ -1,6 +1,6 @@
 "use client";
 
-import { MockWorkItems } from "@/utils/constants";
+import { MockWorkItems } from "@/utils/mocks";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { notFound } from "next/navigation";

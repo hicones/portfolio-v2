@@ -1,6 +1,6 @@
 "use client";
 
-import { MockBlogsItems } from "@/utils/constants";
+import { MockBlogsItems } from "@/utils/mocks";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";

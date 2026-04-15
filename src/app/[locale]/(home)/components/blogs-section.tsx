@@ -1,7 +1,7 @@
 "use client";
 
 import { BlogItemModel } from "@/types/blog";
-import { MockBlogsItems } from "@/utils/constants";
+import { MockBlogsItems } from "@/utils/mocks";
 import {
   motion,
   MotionValue,
@@ -19,7 +19,7 @@ export const BlogsSection = () => {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["-400px start", "end start"],
+    offset: ["-200px start", "end start"],
   });
 
   const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
@@ -86,7 +86,7 @@ const BlogItem = ({
       style={{
         x: translate,
       }}
-      className="relative flex flex-col items-center justify-center w-full min-w-lg p-4 bg-white rounded-lg shadow-md group hover:shadow-lg transition-all duration-300 ease-in-out overflow-hidden hover:scale-105"
+      className="relative flex flex-col items-center justify-center w-full min-w-52 lg:min-w-lg p-4 bg-white rounded-lg shadow-md group hover:shadow-lg transition-all duration-300 ease-in-out overflow-hidden hover:scale-105"
     >
       <Image
         width={296}

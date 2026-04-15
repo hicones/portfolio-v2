@@ -1,11 +1,27 @@
+"use client";
+
 import { TransitionButton } from "@/components/app/transition-button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import * as motion from "motion/react-client";
 import { useTranslations } from "next-intl";
+import { useActionState, useRef, useEffect } from "react";
+import { submitContactForm, type ContactFormState } from "@/app/actions";
 
 export const ContactSection = () => {
   const t = useTranslations("Contact");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const [state, formAction, isPending] = useActionState<
+    ContactFormState,
+    FormData
+  >(submitContactForm, { success: false });
+
+  useEffect(() => {
+    if (state.success) {
+      formRef.current?.reset();
+    }
+  }, [state]);
 
   return (
     <section
@@ -19,14 +35,45 @@ export const ContactSection = () => {
         transition={{ duration: 0.5 }}
         viewport={{ margin: "-200px" }}
       >
-        <form action="" className="max-w-xl font-sans">
+        <form ref={formRef} action={formAction} className="max-w-xl font-sans">
           <h2 className="text-3xl font-semibold">{t("title")}</h2>
           <p className="text-lg">{t("description")}</p>
           <div className="flex flex-col gap-4 mt-8">
-            <Input type="text" placeholder={t("namePlaceholder")} />
-            <Input type="email" placeholder={t("emailPlaceholder")} />
-            <Textarea rows={8} placeholder={t("messagePlaceholder")} />
-            <TransitionButton>{t("sendMessage")}</TransitionButton>
+            <Input
+              type="text"
+              name="name"
+              placeholder={t("namePlaceholder")}
+              required
+              disabled={isPending}
+            />
+            <Input
+              type="email"
+              name="email"
+              placeholder={t("emailPlaceholder")}
+              required
+              disabled={isPending}
+            />
+            <Textarea
+              name="message"
+              rows={8}
+              placeholder={t("messagePlaceholder")}
+              required
+              disabled={isPending}
+            />
+
+            {state.error && (
+              <p className="text-red-500 text-sm font-normal">{state.error}</p>
+            )}
+
+            <TransitionButton disabled={isPending}>
+              {isPending ? t("sending") : t("sendMessage")}
+            </TransitionButton>
+
+            {state.success && (
+              <p className="text-green-500 text-sm font-normal">
+                {t("successMessage")}
+              </p>
+            )}
           </div>
         </form>
 
@@ -37,7 +84,7 @@ export const ContactSection = () => {
           viewport={{ margin: "-200px", once: true }}
           src="/assets/contact.png"
           alt="contact illustration image"
-          className="max-w-xl object-contain rounded-lg shadow-sm"
+          className="max-w-xl object-contain rounded-lg shadow-sm hidden lg:block"
         />
       </motion.div>
     </section>

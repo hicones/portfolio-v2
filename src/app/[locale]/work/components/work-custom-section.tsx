@@ -7,7 +7,7 @@ import {
   useMotionValue,
   useSpring,
 } from "motion/react";
-import { MockWorkItems } from "@/utils/constants";
+import { MockWorkItems } from "@/utils/mocks";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Modal } from "../../(home)/components/work-section/modal";

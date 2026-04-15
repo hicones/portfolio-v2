@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Modal } from "./modal";
 import { motion } from "motion/react";
 import { TransitionButton } from "@/components/app/transition-button";
-import { MockWorkItems } from "@/utils/constants";
+import { MockWorkItems } from "@/utils/mocks";
 import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/routing";
 
@@ -19,13 +19,13 @@ export const WorkSection = () => {
   });
 
   return (
-    <section className="flex flex-col items-center lg:py-10 relative container mx-auto gap-4 overflow-x-hidden">
+    <section className="flex flex-col items-center py-10 relative container mx-auto gap-4 overflow-x-hidden">
       <motion.h2
         initial={{ opacity: 0, y: -100 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ margin: "-100px" }}
-        className="lg:text-[30vw] text-[18vw] font-normal text-[#797979]"
+        className="text-[15vw] font-normal text-[#797979]"
       >
         {t("title")}
       </motion.h2>
@@ -50,7 +50,7 @@ export const WorkSection = () => {
         <Modal modal={modal} projects={MockWorkItems} />
       </div>
       <Link href={"/work"}>
-        <TransitionButton className="mt-20">
+        <TransitionButton className="mt-10">
           {t("allProjects")}
         </TransitionButton>
       </Link>

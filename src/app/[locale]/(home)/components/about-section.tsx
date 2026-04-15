@@ -27,7 +27,7 @@ export const AboutSection = () => {
         >
           <h2 className="text-3xl font-semibold">{t("title")}</h2>
           <p className="text-lg ">
-            {t("description", { years: getExactAge(2019, 1, 23) })}
+            {t("description", { years: getExactAge(2019, 3, 23) })}
           </p>
           <DownloadCVButton />
         </motion.div>

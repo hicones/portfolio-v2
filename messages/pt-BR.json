@@ -15,7 +15,9 @@
     "namePlaceholder": "Seu nome",
     "emailPlaceholder": "Seu endereço de e-mail",
     "messagePlaceholder": "Fale sobre o seu projeto",
-    "sendMessage": "Enviar Mensagem"
+    "sendMessage": "Enviar Mensagem",
+    "sending": "Enviando...",
+    "successMessage": "Mensagem enviada com sucesso!"
   },
   "Blogs": {
     "readMore": "Leia mais"

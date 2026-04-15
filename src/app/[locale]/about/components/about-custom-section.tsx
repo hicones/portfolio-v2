@@ -3,7 +3,8 @@
 import { getExactAge } from "@/lib/utils";
 import { motion, useScroll, useTransform, Variants } from "motion/react";
 import { DownloadCVButton } from "@/components/download-cv";
-import { MockSkills, MockExperience, MockEducation } from "@/utils/about-data";
+import { Skills } from "@/utils/about-data";
+import { MockExperience, MockEducation } from "@/utils/mocks";
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -119,7 +120,7 @@ const SkillsSection = () => {
         viewport={{ once: true, margin: "-100px" }}
         className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6"
       >
-        {MockSkills.map((skill, index) => (
+        {Skills.map((skill, index) => (
           <motion.div
             key={index}
             variants={item}

@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/routing";
 import * as motion from "motion/react-client";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import {
   containerVariants,
   itemVariants,
@@ -9,6 +9,8 @@ import {
 
 export const Footer = () => {
   const t = useTranslations("Footer");
+  const locale = useLocale();
+
   return (
     <footer className="relative h-fit bg-foreground rounded-t-[4rem] text-background">
       <motion.div
@@ -16,7 +18,7 @@ export const Footer = () => {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ margin: "-600px" }}
+        viewport={{ margin: "-300px" }}
         transition={{ duration: 1 }}
       >
         <motion.div className="mb-24" variants={itemVariants}>
@@ -80,7 +82,7 @@ export const Footer = () => {
           <div>
             <p>{t("rights", { year: new Date().getFullYear() })}</p>
           </div>
-          <p>{new Date().toLocaleDateString()}</p>
+          <p>{new Date().toLocaleDateString(locale)}</p>
         </div>
       </motion.div>
     </footer>
