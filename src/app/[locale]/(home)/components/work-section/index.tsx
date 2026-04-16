@@ -1,22 +1,23 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { WorkSectionProps } from "@/types/work";
+import { WorkItemModel, WorkSectionProps } from "@/types/work";
 import { useState } from "react";
 import { Modal } from "./modal";
 import { motion } from "motion/react";
 import { TransitionButton } from "@/components/app/transition-button";
-import { MockWorkItems } from "@/utils/mocks";
 import { useTranslations } from "next-intl";
 import { Link, useRouter } from "@/i18n/routing";
 
-export const WorkSection = () => {
+export const WorkSection = ({ projects }: { projects: WorkItemModel[] }) => {
   const t = useTranslations("WorkSection");
 
   const [modal, setModal] = useState({
     active: false,
     index: 0,
   });
+
+  console.log(projects, 'projects')
 
   return (
     <section className="flex flex-col items-center py-10 relative container mx-auto gap-4 overflow-x-hidden">
@@ -37,7 +38,7 @@ export const WorkSection = () => {
           viewport={{ margin: "-200px" }}
           className="flex flex-col items-center justify-center container mx-auto w-full"
         >
-          {MockWorkItems.map((item, index) => (
+          {projects.map((item, index) => (
             <ProjectItem
               key={index}
               index={index}
@@ -47,7 +48,7 @@ export const WorkSection = () => {
           ))}
         </motion.div>
 
-        <Modal modal={modal} projects={MockWorkItems} />
+        <Modal modal={modal} projects={projects} />
       </div>
       <Link href={"/work"}>
         <TransitionButton className="mt-10">

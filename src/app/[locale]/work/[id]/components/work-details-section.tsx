@@ -1,16 +1,15 @@
 "use client";
 
-import { MockWorkItems } from "@/utils/mocks";
 import { motion } from "motion/react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { LuArrowLeft, LuExternalLink, LuGithub } from "react-icons/lu";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
+import { WorkItemModel } from "@/types/work";
 
-export const WorkDetailsSection = ({ id }: { id: string }) => {
+export const WorkDetailsSection = ({ project }: { project: WorkItemModel }) => {
   const t = useTranslations("WorkDetails");
-  const project = MockWorkItems.find((p) => p.id === id);
 
   if (!project) return notFound();
 

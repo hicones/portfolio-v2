@@ -7,7 +7,7 @@ import {
   useMotionValue,
   useSpring,
 } from "motion/react";
-import { MockWorkItems } from "@/utils/mocks";
+
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Modal } from "../../(home)/components/work-section/modal";
@@ -18,9 +18,11 @@ import { useTranslations } from "next-intl";
 export const WorkCustomSection = ({
   viewMode,
   setViewMode,
+  projects
 }: {
   viewMode: "list" | "gallery";
   setViewMode: (viewMode: "list" | "gallery") => void;
+  projects: WorkItemModel[];
 }) => {
   const [modal, setModal] = useState({
     active: false,
@@ -97,19 +99,19 @@ export const WorkCustomSection = ({
               className="flex flex-col w-full max-w-6xl"
             >
               <div className="flex flex-col w-full relative">
-                {MockWorkItems.map((item, index) => (
+                {projects.map((item, index) => (
                   <ProjectListItem
-                    key={index}
+                    key={item.id}
                     index={index}
                     item={item}
                     setModal={setModal}
                   />
                 ))}
-                <Modal modal={modal} projects={MockWorkItems} />
+                <Modal modal={modal} projects={projects} />
               </div>
             </motion.div>
           ) : (
-            <InfiniteCanvasGallery key="gallery" items={MockWorkItems} />
+            <InfiniteCanvasGallery key="gallery" items={projects} />
           )}
         </AnimatePresence>
       </div>
@@ -217,7 +219,7 @@ const CanvasProjectItem = ({
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <motion.div layoutId={`project-image-${item.id}`} className="size-full">
           <Image
-            src={item.image}
+            src={item.image || "/assets/frame.jpg"}
             alt={item.title}
             fill
             sizes="700px"

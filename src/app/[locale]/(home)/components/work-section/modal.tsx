@@ -71,7 +71,7 @@ export const Modal = ({
                   className="flex items-center justify-center w-full"
                 >
                   <Image
-                    src={image}
+                    src={image || "/assets/frame.jpg"}
                     width={300}
                     height={0}
                     className="h-auto w-full aspect-video object-contain"

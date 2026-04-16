@@ -8,9 +8,12 @@ import { RevealSection } from "./components/reaveal-section";
 import { WorkSection } from "./components/work-section";
 import { BlogsSection } from "./components/blogs-section";
 import { getTranslations } from "next-intl/server";
+import { getWorkItems, getBlogsItems } from "@/lib/data";
 
 export default async function HomePage() {
   const t = await getTranslations("Hero");
+  const projects = await getWorkItems();
+  const blogs = await getBlogsItems();
 
   return (
     <div className="size-full relative">
@@ -44,8 +47,8 @@ export default async function HomePage() {
 
         <AboutSection />
         <RevealSection />
-        <WorkSection />
-        <BlogsSection />
+        <WorkSection projects={projects} />
+        <BlogsSection blogs={blogs} />
         <ContactSection />
         <Footer />
       </main>

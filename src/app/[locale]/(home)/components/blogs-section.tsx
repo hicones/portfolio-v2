@@ -1,7 +1,6 @@
 "use client";
 
 import { BlogItemModel } from "@/types/blog";
-import { MockBlogsItems } from "@/utils/mocks";
 import {
   motion,
   MotionValue,
@@ -14,7 +13,7 @@ import Link from "next/link";
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
 
-export const BlogsSection = () => {
+export const BlogsSection = ({ blogs }: { blogs: BlogItemModel[] }) => {
   const containerRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -26,10 +25,13 @@ export const BlogsSection = () => {
 
   const repeatedBlogs = Array(8)
     .fill(null)
-    .map((_, i) => ({
-      ...MockBlogsItems[0],
-      id: i + 1,
-    }));
+    .map((_, i) => {
+      const blog = blogs[i % blogs.length] || { title: "", description: "", image: "", link: "" };
+      return {
+        ...blog,
+        id: i + 1,
+      };
+    });
 
   const translateX = useSpring(
     useTransform(scrollYProgress, [0, 1], [0, 1000]),
@@ -39,6 +41,8 @@ export const BlogsSection = () => {
     useTransform(scrollYProgress, [0, 1], [0, -1000]),
     springConfig,
   );
+
+  console.log(blogs, 'blogs')
 
   return (
     <motion.section
@@ -91,7 +95,7 @@ const BlogItem = ({
       <Image
         width={296}
         height={384}
-        src={item.image}
+        src={item.image || "/assets/frame.jpg"}
         alt={item.title}
         className="w-full h-32 lg:h-96 object-contain rounded-lg"
       />

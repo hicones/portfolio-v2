@@ -1,6 +1,5 @@
 "use client";
 
-import { MockBlogsItems } from "@/utils/mocks";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,15 +7,12 @@ import { BlogItemModel } from "@/types/blog";
 import { LuArrowUpRight } from "react-icons/lu";
 import { useTranslations } from "next-intl";
 
-export const BlogsCustomSection = () => {
+export const BlogsCustomSection = ({ blogs }: { blogs: BlogItemModel[] }) => {
   const t = useTranslations("BlogsCustom");
-  const blogsList = Array(6)
-    .fill(null)
-    .map((_, i) => ({
-      ...MockBlogsItems[0],
-      id: i + 1,
-    }));
-
+  
+  // se existirem mais de 6 ou poucos, pode ajustar, aqui vamos só usar os blogs passados:
+  const blogsList = blogs.length > 0 ? blogs : [];
+  
   return (
     <section className="flex flex-col items-center py-10 lg:py-20 relative container mx-auto gap-12 w-full min-h-[80vh] px-4">
       <div className="flex flex-col gap-4 text-center mb-10 w-full max-w-3xl">

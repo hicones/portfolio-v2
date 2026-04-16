@@ -4,18 +4,17 @@ import { getExactAge } from "@/lib/utils";
 import { motion, useScroll, useTransform, Variants } from "motion/react";
 import { DownloadCVButton } from "@/components/download-cv";
 import { Skills } from "@/utils/about-data";
-import { MockExperience, MockEducation } from "@/utils/mocks";
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
-export const AboutCustomSection = () => {
+export const AboutCustomSection = ({ experiences, educations }: { experiences: any[], educations: any[] }) => {
   return (
     <section className="flex flex-col items-center py-10 lg:py-20 relative container mx-auto gap-24 w-full px-4 overflow-hidden">
       <HeroSection />
       <SkillsSection />
-      <TimelineSection />
-      <EducationSection />
+      <TimelineSection experiences={experiences} />
+      <EducationSection educations={educations} />
     </section>
   );
 };
@@ -140,7 +139,7 @@ const SkillsSection = () => {
   );
 };
 
-const TimelineSection = () => {
+const TimelineSection = ({ experiences }: { experiences: any[] }) => {
   const t = useTranslations("AboutCustom");
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -174,7 +173,7 @@ const TimelineSection = () => {
         </div>
 
         <div className="flex flex-col gap-12">
-          {MockExperience.map((exp, index) => {
+          {experiences.map((exp, index) => {
             const isEven = index % 2 === 0;
             return (
               <motion.div
@@ -221,7 +220,7 @@ const TimelineSection = () => {
   );
 };
 
-const EducationSection = () => {
+const EducationSection = ({ educations }: { educations: any[] }) => {
   const t = useTranslations("AboutCustom");
   return (
     <div className="flex flex-col w-full max-w-5xl mt-10 mb-20">
@@ -236,7 +235,7 @@ const EducationSection = () => {
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {MockEducation.map((edu, index) => (
+        {educations.map((edu, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 30 }}
