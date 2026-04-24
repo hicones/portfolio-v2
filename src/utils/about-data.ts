@@ -8,11 +8,9 @@ import {
   SiFramer,
   SiThreedotjs,
   SiGreensock,
-  SiGit,
   SiFigma,
   SiDocker,
   SiFirebase,
-  SiStripe,
   SiJest,
   SiStorybook,
   SiCypress,
@@ -20,6 +18,8 @@ import {
   SiMysql,
   SiMongodb,
   SiGooglecloud,
+  SiGo,
+  SiRust,
 } from "react-icons/si";
 
 export const Skills = [
@@ -34,7 +34,7 @@ export const Skills = [
   { name: "Three.js", icon: SiThreedotjs, color: "text-foreground" },
   { name: "GSAP", icon: SiGreensock, color: "text-[#88CE02]" },
   { name: "Node.js", icon: FaNodeJs, color: "text-[#339933]" },
-  { name: "Git", icon: SiGit, color: "text-[#F7DF1E]" },
+  { name: "Rust", icon: SiRust, color: "text-[#000000]" },
   { name: "Figma", icon: SiFigma, color: "text-[#E34]" },
   {
     name: "Accessibility (a11y)",
@@ -44,7 +44,7 @@ export const Skills = [
   { name: "Docker", icon: SiDocker, color: "text-[#0055FF]" },
   { name: "Google Cloud", icon: SiGooglecloud, color: "text-[#0055FF]" },
   { name: "Firebase", icon: SiFirebase, color: "text-[#FE9000]" },
-  { name: "Stripe", icon: SiStripe, color: "text-[#625AFE]" },
+  { name: "Go", icon: SiGo, color: "text-[#625AFE]" },
   { name: "Jest", icon: SiJest, color: "text-[#A74A58]" },
   { name: "Storybook", icon: SiStorybook, color: "text-[#FE4684]" },
   { name: "Cypress", icon: SiCypress, color: "text-[#68D2A6]" },

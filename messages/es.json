@@ -1,12 +1,12 @@
 {
   "Home": {
     "title": "Hicones Tech",
-    "description": "Portafolio de un Desarrollador Frontend Senior"
+    "description": "Portafolio de un Desarrollador Senior"
   },
   "About": {
     "headline": "Un desarrollador frontend especializado en la creación de sitios web, con experiencia colaborando con diseñadores y desarrolladores backend, e integrando animaciones y gráficos 3D para una experiencia visual única.",
     "title": "Soy Henrique Almeida",
-    "description": "Soy un desarrollador frontend senior con más de {years} años de experiencia en la creación de sitios y aplicaciones web. Tengo una sólida base en HTML, CSS y JavaScript, y soy competente en frameworks como React y Next.js. También tengo experiencia en gráficos 3D utilizando Three.js y animaciones con GSAP y Framer."
+    "description": "Soy un desarrollador web senior con más de {years} años de experiencia en la creación de sitios y aplicaciones web. Tengo una sólida base en Frontend y Backend, soy competente en frameworks como React y Next.js. También tengo experiencia en gráficos 3D utilizando Three.js y animaciones con GSAP y Framer."
   },
   "Contact": {
     "pageTitle": "CONTACTO",
@@ -50,7 +50,7 @@
     "role": "Rol",
     "roleValue": "Frontend Senior",
     "timeline": "Duración",
-    "timelineValue": "2 meses",
+    "timelineValue": "meses",
     "visitLive": "Visitar Sitio",
     "viewSource": "Ver Código"
   },
